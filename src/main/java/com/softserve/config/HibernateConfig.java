@@ -31,7 +31,9 @@ public class HibernateConfig {
         Properties properties = new Properties();
         properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
         properties.put("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));
-        properties.put("hibernate.ddl-auto", environment.getRequiredProperty("hibernate.ddl-auto"));
+        properties.put("hibernate.hbm2ddl.auto", environment.getRequiredProperty("hibernate.hbm2ddl.auto"));
+        properties.put("hibernate.generate-ddl", environment.getRequiredProperty("hibernate.generate-ddl"));
+        properties.put("hibernate.hbm2ddl.import_files", environment.getRequiredProperty("hibernate.hbm2ddl.import_files"));
         properties.put("current_session_context_class", environment.getRequiredProperty("current_session_context_class"));
         return properties;
     }
@@ -48,11 +50,11 @@ public class HibernateConfig {
 
     @Bean
     public LocalSessionFactoryBean sessionFactory() {
-        LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
-        factoryBean.setDataSource(dataSource());
-        factoryBean.setPackagesToScan("com.softserve.model");
-        factoryBean.setHibernateProperties(properties());
-        return factoryBean;
+        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+        sessionFactory.setDataSource(dataSource());
+        sessionFactory.setPackagesToScan("com.softserve.model");
+        sessionFactory.setHibernateProperties(properties());
+        return sessionFactory;
     }
 
     @Bean
