@@ -53,9 +53,9 @@
                 <tr>
                     <td>${hotel.hotelName}</td>
                     <td>
-                            <%--                        <form action="${contextPath}/allHotelRooms/${hotel.id}" method="post">--%>
-                            <%--                            <input type="submit" value="check a specific room" class="subm">--%>
-                            <%--                        </form>--%>
+                        <form action="${contextPath}/allHotelRooms/${hotel.id}" method="post">
+                            <input type="submit" value="check a specific room" class="subm">
+                        </form>
                     </td>
                 </tr>
             </c:forEach>

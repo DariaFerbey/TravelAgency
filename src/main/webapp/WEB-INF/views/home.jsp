@@ -9,26 +9,22 @@
 <html>
 <head>
     <title>Travel agency</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<%@include file="header.jsp" %>
-<br>
-<h2>Welcome to Travel Agency</h2>
-<p>We are glad to see you here. Choose what you want to do here:</p>
-<table class="table table-sm">
+<div class="container">
+    <%@include file="header.jsp" %>
+    <br>
+    <h2>Welcome to Travel Agency</h2>
+    <p>We are glad to see you here!</p>
+    <table class="table table-striped">
     <tbody>
-        <tr>
-            <td><a href="${contextPath}/countries/findHotelByCountry">Find hotel in different country </a></td>
-        </tr>
-        <tr>
-            <td><a href="${contextPath}/rooms/findAvailableRoom">Book available rooms on the concrete date </a></td>
-        </tr>
-        <tr>
-            <td><a href="">Check if there are available rooms in hotel for period </a></td>
-        </tr>
-
+    <tr>
+        <td><a href="${contextPath}/countries/findHotelByCountry">Find hotel in different country </a></td>
+    </tr>
     </tbody>
-</table>
+    </table>
+</div>
 </body>
 </html>

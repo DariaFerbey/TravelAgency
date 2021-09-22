@@ -23,7 +23,7 @@ public class RoomService {
         return roomDAO.findById(roomId);
     }
 
-    public List<Room> getAllRooms() {
+    public List<Room> getAllRooms(Integer id) {
         return roomDAO.getAllRooms();
     }
 
