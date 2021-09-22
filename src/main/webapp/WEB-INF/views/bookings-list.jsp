@@ -14,30 +14,32 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<%@include file="header.jsp" %>
-<br>
-<h1>Management</h1>
-<table class="table table-striped">
-    <c:forEach var="booking" items="${all}">
-        <tr>
-            <th>Room</th>
-            <th>Hotel</th>
-            <th>Checkin</th>
-            <th>Checkout</th>
-            <th></th>
-        </tr>
-        <tr>
-            <td><c:out value="${booking.room.id}"/></td>
-            <td><c:out value="${booking.room.hotel.hotelName}"/></td>
-            <td><c:out value="${booking.checkIn}"/></td>
-            <td><c:out value="${booking.checkOut}"/></td>
-            <td><a href="<c:url value="/booking/delete/${booking.id}"/>">Cancel booking</a></td>
-<%--            <td><a href="/booking/delete/${booking.id}">Cancel booking</a></td>--%>
-        </tr>
-    </c:forEach>
-    <c:if test="${empty all}">
-        User don't have any bookings.
-    </c:if>
-</table>
+<div class="container">
+    <%@include file="header.jsp" %>
+    <br>
+    <h1>Management</h1>
+    <table class="table table-striped">
+        <c:forEach var="booking" items="${all}">
+            <tr>
+                <th>Room</th>
+                <th>Hotel</th>
+                <th>Checkin</th>
+                <th>Checkout</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td><c:out value="${booking.room.id}"/></td>
+                <td><c:out value="${booking.room.hotel.hotelName}"/></td>
+                <td><c:out value="${booking.checkIn}"/></td>
+                <td><c:out value="${booking.checkOut}"/></td>
+                <td><a href="<c:url value="/booking/delete/${booking.id}"/>">Cancel booking</a></td>
+                    <%--            <td><a href="/booking/delete/${booking.id}">Cancel booking</a></td>--%>
+            </tr>
+        </c:forEach>
+        <c:if test="${empty all}">
+            User don't have any bookings.
+        </c:if>
+    </table>
+</div>
 </body>
 </html>

@@ -1,12 +1,14 @@
 package com.softserve.model;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Data
+@ToString
 @Table(name = "rooms")
 public class Room {
 
@@ -27,6 +29,7 @@ public class Room {
     @JoinColumn(name = "hotel_id")
     private Hotel hotel;
 
+    @ToString.Exclude
     @OneToMany(orphanRemoval = true, mappedBy = "room", fetch = FetchType.EAGER)
     private List<Booking> bookings;
 
