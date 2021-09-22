@@ -21,10 +21,10 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/allBookings")
-    public String viewAllUsersAndOrders(Model model) {
+    @GetMapping("/all")
+    public String getAllUsersAndOrders(Model model) {
         List<User> users = userService.getAllUser();
         model.addAttribute("users", users);
-        return "allBookings";
+        return "users";
     }
 }

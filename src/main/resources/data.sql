@@ -1,6 +1,7 @@
 INSERT INTO countries (id, country_name) VALUES (1, 'GERMANY');
 INSERT INTO countries (id, country_name) VALUES (2, 'POLAND');
 INSERT INTO countries (id, country_name) VALUES (3, 'UKRAINE');
+INSERT INTO countries (id, country_name) VALUES (4, 'SPAIN');
 
 INSERT INTO hotels (id, hotel_name, country_id) VALUES (1, 'Grand Hotel Tremezzo', 1);
 INSERT INTO hotels (id, hotel_name, country_id) VALUES (2, 'Mandarin Oriental', 2);
@@ -17,6 +18,6 @@ INSERT INTO rooms (id, room_number, price, is_available, hotel_id) VALUES (4, 4,
 INSERT INTO rooms (id, room_number, price, is_available, hotel_id) VALUES (5, 6456, 450, true, null);
 INSERT INTO rooms (id, room_number, price, is_available, hotel_id) VALUES (6, 1234, 510,true, null);
 
-INSERT INTO bookings (id, check_in, check_out, room_id, user_id) VALUES (123, '2021-05-11', '2021-05-13', 1, 4);
-INSERT INTO bookings (id, check_in, check_out, room_id, user_id) VALUES (456, '2021-05-07', '2021-05-08', 2, 5);
-INSERT INTO bookings (id, check_in, check_out, room_id, user_id) VALUES (789, '2021-05-13', '2021-05-17', 3, 6);
+-- INSERT INTO bookings (id, check_in, check_out, room_id, user_id) VALUES (123, '2021-05-11', '2021-05-13', 1, 4);
+-- INSERT INTO bookings (id, check_in, check_out, room_id, user_id) VALUES (456, '2021-05-07', '2021-05-08', 2, 5);
+-- INSERT INTO bookings (id, check_in, check_out, room_id, user_id) VALUES (789, '2021-05-13', '2021-05-17', 3, 6);
