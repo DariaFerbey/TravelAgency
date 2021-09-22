@@ -14,6 +14,8 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+<%@include file="header.jsp" %>
+<br>
 <h1>Management</h1>
 <table class="table table-striped">
     <c:forEach var="booking" items="${all}">
@@ -37,7 +39,5 @@
         User don't have any bookings.
     </c:if>
 </table>
-<p><a href="/home">Back home</a></p>
-
 </body>
 </html>

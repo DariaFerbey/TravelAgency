@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<%@include file="header.html" %>
+<%@include file="header.jsp" %>
+<br>
 <h2>Welcome to Travel Agency</h2>
 <p>We are glad to see you here. Choose what you want to do here:</p>
 <table class="table table-sm">

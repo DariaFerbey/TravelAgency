@@ -15,6 +15,8 @@
 </head>
 <body>
 <div class="container">
+    <%@include file="header.jsp" %>
+    <br>
     <h1>List of users</h1>
     <table class="table table-striped">
         <tr>
@@ -30,7 +32,6 @@
             </tr>
         </c:forEach>
     </table>
-    <p><a href="/home">Back home</a></p>
 </div>
 
 </body>

@@ -12,19 +12,22 @@
 <html>
 <head>
     <title>Travel Agency</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+
 <div class="container">
+    <%@include file="header.jsp" %>
+    <br>
     <h2>Find hotels in the country</h2>
     <h4>
         <c:if test="${not empty errorMessage}">
             ${errorMessage}
         </c:if>
     </h4>
-    <%@include file="header.html" %>
     <br>
-    <form action="${contextPath}/hotels/findHotel" method="get" >
+    <form action="${contextPath}/hotels/findHotel" method="get">
         <label for="countryLabel">Country name</label>
         <select id="countryLabel" name="country" onChange="this.form.submit()">
             <option value="" selected disabled hidden>Choose country</option>
@@ -32,7 +35,7 @@
                 <option value="${item.name}">${item.name}</option>
             </c:forEach>
         </select>
-        <br />
+        <br/>
     </form>
 
     <c:if test="${not empty hotels}">
@@ -50,9 +53,9 @@
                 <tr>
                     <td>${hotel.hotelName}</td>
                     <td>
-<%--                        <form action="${contextPath}/allHotelRooms/${hotel.id}" method="post">--%>
-<%--                            <input type="submit" value="check a specific room" class="subm">--%>
-<%--                        </form>--%>
+                            <%--                        <form action="${contextPath}/allHotelRooms/${hotel.id}" method="post">--%>
+                            <%--                            <input type="submit" value="check a specific room" class="subm">--%>
+                            <%--                        </form>--%>
                     </td>
                 </tr>
             </c:forEach>

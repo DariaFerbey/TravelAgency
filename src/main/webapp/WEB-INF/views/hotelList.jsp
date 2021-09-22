@@ -16,7 +16,7 @@
 <body>
 <br>
 <div class="container">
-    <%@include file="header.html" %>
+    <%@include file="header.jsp" %>
     <br>
     <div>
         <h2 align="center">All Hotels</h2>
