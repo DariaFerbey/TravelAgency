@@ -31,10 +31,10 @@
                 <tr>
                     <th>Orders</th>
                 </tr>
-<%--                <c:if test="${user.bookings.size() == 0}">--%>
-<%--                    <tr>No orders</tr>--%>
-<%--                </c:if>--%>
-<%--                <c:if test="${user.bookings.size() != 0}">--%>
+                <c:if test="${user.booking.size() == 0}">
+                    <tr>No orders</tr>
+                </c:if>
+                <c:if test="${user.booking.size() != 0}">
                     <c:forEach var="book" items="${user.booking}">
                         <tr>
                             <th>Date of arrival</th>
@@ -49,7 +49,7 @@
                             <td>${book.room.number}</td>
                         </tr>
                     </c:forEach>
-<%--                </c:if>--%>
+                </c:if>
             </c:forEach>
             </tbody>
         </table>

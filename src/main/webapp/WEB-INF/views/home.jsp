@@ -21,7 +21,7 @@
             <td><a href="${contextPath}/countries/findHotelByCountry">Find hotel in different country </a></td>
         </tr>
         <tr>
-            <td><a href="">Book available rooms on the concrete date </a></td>
+            <td><a href="${contextPath}/rooms/findAvailableRoom">Book available rooms on the concrete date </a></td>
         </tr>
         <tr>
             <td><a href="">Check if there are available rooms in hotel for period </a></td>
