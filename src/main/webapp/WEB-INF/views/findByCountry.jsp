@@ -39,24 +39,25 @@
     </form>
 
     <c:if test="${not empty hotels}">
-        <table>
+        <table class="table table-striped">
             <thead>
             <tr>
-                Here you can see all hotels in the ${hotels[0].country.name}
-            </tr>
-            <tr>
                 <th>Hotel name</th>
+                <th>Country</th>
+                <th colspan="2"></th>
             </tr>
             </thead>
             <tbody>
             <c:forEach var="hotel" items="${hotels}">
                 <tr>
                     <td>${hotel.hotelName}</td>
+                    <td>${hotel.country.name}</td>
                     <td>
-                        <form action="${contextPath}/allHotelRooms/${hotel.id}" method="post">
+                        <form action="${contextPath}/rooms/allHotelRooms/${hotel.id}" method="post">
                             <input type="submit" value="check a specific room" class="subm">
                         </form>
                     </td>
+                    <td></td>
                 </tr>
             </c:forEach>
             </tbody>
