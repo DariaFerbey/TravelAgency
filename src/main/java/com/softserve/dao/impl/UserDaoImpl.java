@@ -39,6 +39,21 @@ public class UserDaoImpl  implements UserDAO {
     }
 
     @Override
+    public User findById(Integer id) {
+        Session session;
+        try {
+            session = sessionFactory.getCurrentSession();
+        } catch (HibernateException e) {
+            session = sessionFactory.openSession();
+        }
+        User user = (User) session.createQuery("from User u where u.id=:id", User.class)
+                .setParameter("id", id)
+                .getSingleResult();
+        log.info("Find user by id " + id + ": " + user.getId());
+        return user;
+    }
+
+    @Override
     public List<User> getAllUsers() {
         Session session;
         try {

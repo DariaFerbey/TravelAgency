@@ -18,7 +18,7 @@ public class Hotel {
     @Column(name = "hotel_name")
     private String hotelName;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "country_id")
     private Country country;
 
