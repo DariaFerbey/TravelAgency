@@ -33,7 +33,6 @@
                 <tr>
                     <td>${hotel.hotelName}</td>
                     <td>${hotel.country.name}</td>
-                    <td><a href="${contextPath}/hotels/updateHotel/${hotel.id}">Edit</a></td>
                     <td><a href="${contextPath}/hotels/deleteHotel/${hotel.id}">Delete</a></td>
                     <td><a href="${contextPath}/rooms/addRoom/${hotel.id}">Add room</a></td>
                     <td><a href="${contextPath}/rooms/allHotelRooms/${hotel.id}/">View all rooms</a></td>
@@ -41,9 +40,7 @@
             </c:forEach>
             </tbody>
         </table>
-
-<%--        <td><a href="${contextPath}/hotels/addHotel">Add</a></td>  --%>
-<%--    <p><a href="<c:url value="${contextPath}/addHotel"/>">Add hotel</a></p>--%>
+    <p><a href="<c:url value="${contextPath}/hotels/addHotel"/>">Add hotel</a></p>
 </div>
 </body>
 

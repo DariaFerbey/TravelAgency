@@ -26,7 +26,8 @@ public class HotelController {
     }
 
     @GetMapping("/addHotel")
-    public String addHotelPage(@ModelAttribute(name = "hotel") Hotel hotel, Model model) {
+    public String addHotelPage(Model model) {
+        model.addAttribute("hotel",new Hotel());
         model.addAttribute("countryList", countryService.getAllCountries());
         return "addHotel";
     }
