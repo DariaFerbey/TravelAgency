@@ -28,12 +28,11 @@
                 <th></th>
             </tr>
             <tr>
-                <td><c:out value="${booking.room.id}"/></td>
+                <td><c:out value="${booking.room.number}"/></td>
                 <td><c:out value="${booking.room.hotel.hotelName}"/></td>
                 <td><c:out value="${booking.checkIn}"/></td>
                 <td><c:out value="${booking.checkOut}"/></td>
-                <td><a href="<c:url value="/booking/delete/${booking.id}"/>">Cancel booking</a></td>
-                    <%--            <td><a href="/booking/delete/${booking.id}">Cancel booking</a></td>--%>
+                <td><a href="<c:url value="/booking/delete/${booking.id}"/>">Cancel booking</a></td
             </tr>
         </c:forEach>
         <c:if test="${empty all}">
