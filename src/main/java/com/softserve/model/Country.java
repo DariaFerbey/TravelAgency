@@ -7,8 +7,6 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Data
-@ToString(of = {"name"})
 @Table(name = "countries")
 public class Country {
     @Id
@@ -20,4 +18,17 @@ public class Country {
 
     @OneToMany(mappedBy = "country", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private List<Hotel> hotels;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

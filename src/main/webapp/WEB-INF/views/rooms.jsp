@@ -32,9 +32,9 @@
             <tbody>
             <c:forEach var="room" items="${rooms}">
                 <tr>
-                    <td align="center" >${room.id}</td>
-                    <td align="center" >${room.number}</td>
-                    <td align="center">${room.price}</td>
+                    <td>${room.id}</td>
+                    <td>${room.number}</td>
+                    <td>${room.price}</td>
                 </tr>
                 <c:set var="hotelId" value="${room.hotel.id}"/>
             </c:forEach>

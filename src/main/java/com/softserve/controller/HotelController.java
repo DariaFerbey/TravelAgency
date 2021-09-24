@@ -77,11 +77,11 @@ public class HotelController {
 
             List<Hotel> list = hotelService.getAllHotelByCountry(optionalCountry.get().getId());
             if (list.isEmpty()) {
-                model.addAttribute("errorMessage", "There is no hotels in this country");
+                model.addAttribute("errorMessage", "There is no hotels in " + countryService.findByName(country));
             }
             model.addAttribute("hotels", list);
         } else if (country != null && !country.isEmpty()) {
-            model.addAttribute("errorMessage", "There is no hotels in this country");
+            model.addAttribute("errorMessage", "There is no hotels in " + countryService.findByName(country));
         }
 
         return "findByCountry";
