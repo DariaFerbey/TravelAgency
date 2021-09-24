@@ -12,25 +12,31 @@
 <html>
 <head>
     <title>Travel Agency</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<div class="container">
-    <h1>Add hotel</h1>
-    <form:form action="${contextPath}/hotels/addHotel" modelAttribute="hotel" method="post">
-        <label for="hotelName">Hotel name</label>
-        <form:input path="hotelName" type="text" id="hotelName" placeholder="Hotel name" required="true"/>
-        <br />
-        <label for="countryName">Country name</label>
-        <select name="countryName" id="countryName">
-            <c:forEach var="c" items="${countryList}">
-                <option value="${c.id}">${c.name}</option>
-            </c:forEach>
-        </select>
-        <br />
-        <input type="submit" value="Add hotel">
+<div class="container ">
+    <div class="col-sm-4">
+        <h1>Add hotel</h1>
+        <form:form action="${contextPath}/hotels/addHotel" modelAttribute="hotel" method="post">
+            <div class="form-group">
+                <label for="hotelName">Hotel name</label>
+                <input path="hotelName" class="form-control" type="text" id="hotelName" placeholder="Hotel name"
+                       required="true"/>
+            </div>
+            <div class="form-group">
+                <label for="countryName">Country name</label>
+                <select class="custom-select" name="countryName" id="countryName">
+                    <c:forEach var="c" items="${countryList}">
+                        <option value="${c.id}">${c.name}</option>
+                    </c:forEach>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-default">Add hotel</button>
 
-    </form:form>
+        </form:form>
+    </div>
 </div>
 </body>
 </html>
