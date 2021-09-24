@@ -2,6 +2,8 @@ package com.softserve.model;
 
 import lombok.Data;
 import lombok.ToString;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.List;
@@ -30,6 +32,7 @@ public class Room {
     private Hotel hotel;
 
     @ToString.Exclude
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @OneToMany(orphanRemoval = true, mappedBy = "room", fetch = FetchType.EAGER)
     private List<Booking> bookings;
 
