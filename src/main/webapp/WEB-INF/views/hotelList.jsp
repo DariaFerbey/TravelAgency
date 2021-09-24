@@ -34,8 +34,8 @@
                     <td>${hotel.hotelName}</td>
                     <td>${hotel.country.name}</td>
                     <td><a href="${contextPath}/hotels/deleteHotel/${hotel.id}">Delete</a></td>
-                    <td><a href="${contextPath}/rooms/addRoom/${hotel.id}">Add room</a></td>
-                    <td><a href="${contextPath}/rooms/allHotelRooms/${hotel.id}/">View all rooms</a></td>
+                    <td><a href="${contextPath}/rooms/add/${hotel.id}">Add room</a></td>
+                    <td><a href="${contextPath}/rooms/all/${hotel.id}/">View all rooms</a></td>
                 </tr>
             </c:forEach>
             </tbody>

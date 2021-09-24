@@ -18,21 +18,23 @@
 </head>
 <body>
 <div class="container">
-    <h2>Add room</h2>
-    <form:form action="/rooms/addRoom" modelAttribute="room" method="post">
-        <input type="hidden" name="hotelId" value="${room.id}">
-        <p>
-            <label for="number">Number</label>
-            <form:input path="number" type="number" id="number" placeholder="Number" required="true" min="1"/>
-        </p>
-        <p>
-            <label for="price">Room price</label>
-            <form:input path="price" type="number" id="price" placeholder="Price" required="true" min="1"/>
-        </p>
-        <p>
-            <input type="submit" value="Add room">
-        </p>
-    </form:form>
+    <div class="col-sm-4">
+        <h2>Add room</h2>
+        <form:form action="/rooms/add" modelAttribute="room" method="post">
+            <input class="form-control" type="hidden" name="hotelId" value="${room.id}">
+            <div class="form-group">
+                <label for="number">Number</label>
+                <form:input class="form-control" path="number" type="number" id="number" placeholder="Number"
+                            required="true" min="1"/>
+            </div>
+            <div class="form-group">
+                <label for="price">Room price</label>
+                <form:input class="form-control" path="price" type="number" id="price" placeholder="Price"
+                            required="true" min="1"/>
+            </div>
+            <button type="submit" class="btn btn-default">Add room</button>
+        </form:form>
+    </div>
 </div>
 
 </body>

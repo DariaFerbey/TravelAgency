@@ -29,10 +29,10 @@ public class RoomController {
         this.userService = userService;
     }
 
-    @GetMapping("/allHotelRooms/{id}")
-    public String getHotelRooms(Model model, @PathVariable Integer id) {
-        model.addAttribute("roomList", roomService.getAllHotelRooms(id));
-        return "allHotelRooms";
+    @GetMapping("/all/{id}")
+    public String getHotelRooms(Model model, @PathVariable("id") Integer id) {
+        model.addAttribute("rooms", roomService.getAllHotelRooms(id));
+        return "rooms";
     }
 
     @GetMapping("/deleteRoom/{id}")
@@ -40,11 +40,11 @@ public class RoomController {
         Hotel hotel = roomService.findById(id).getHotel();
         List<Room> roomList = roomService.getAllHotelRooms(hotel.getId());
         roomService.delete(id);
-        model.addAttribute("roomList", roomList);
-        return "allHotelRooms";
+        model.addAttribute("rooms", roomList);
+        return "rooms";
     }
 
-    @GetMapping("/addRoom/{id}")
+    @GetMapping("/add/{id}")
     public String addRoom(@PathVariable("id") Integer id, Model model) {
         Hotel hotel = hotelService.findById(id);
         Room room = new Room();
@@ -53,15 +53,15 @@ public class RoomController {
         return "addRoom";
     }
 
-    @PostMapping("/addRoom")
+    @PostMapping("/add")
     public String addRoomForm(Room room, Model model) {
         roomService.save(room);
         List<Room> roomList = roomService.getAllHotelRooms(room.getHotel().getId());
         model.addAttribute("roomList", roomList);
-        return "redirect:/allHotelRooms/" + room.getHotel().getId();
+        return "redirect:/all/" + room.getHotel().getId();
     }
 
-    @PostMapping("/allHotelRooms/{id}")
+    @PostMapping("/all/{id}")
     public String allHotelRooms(@PathVariable("id") Integer id, Model model) {
         List<Room> rooms = roomService.getAllRooms(id);
         model.addAttribute("rooms", rooms);

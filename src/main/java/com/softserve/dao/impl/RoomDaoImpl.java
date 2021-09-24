@@ -55,12 +55,7 @@ public class RoomDaoImpl implements RoomDAO {
 
     @Override
     public List<Room> getAllHotelRooms(Integer hotelId) {
-        Session session;
-        try {
-            session = sessionFactory.getCurrentSession();
-        } catch (HibernateException e) {
-            session = sessionFactory.openSession();
-        }
+        Session session = sessionFactory.getCurrentSession();
         List<Room> rooms = session.createQuery("from Room r where hotel.id=:id", Room.class)
                 .setParameter("id",hotelId)
                 .getResultList();

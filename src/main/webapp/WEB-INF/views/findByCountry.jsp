@@ -22,14 +22,14 @@
     <br>
     <h2>Find hotels in the country</h2>
     <h4>
-        <c:if test="${not empty errorMessage}">
-            ${errorMessage}
+        <c:if test="${not empty errorMessage}" >
+            <font color="orange"> ${errorMessage}</font>
         </c:if>
     </h4>
     <br>
     <form action="${contextPath}/hotels/findHotel" method="get">
         <label for="countryLabel">Country name</label>
-        <select id="countryLabel" name="country" onChange="this.form.submit()">
+        <select class="custom-select col-sm-4" id="countryLabel" name="country" onChange="this.form.submit()">
             <option value="" selected disabled hidden>Choose country</option>
             <c:forEach var="item" items="${countryList}">
                 <option value="${item.name}">${item.name}</option>
