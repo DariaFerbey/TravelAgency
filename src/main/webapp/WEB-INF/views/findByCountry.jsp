@@ -53,7 +53,7 @@
                     <td>${hotel.hotelName}</td>
                     <td>${hotel.country.name}</td>
                     <td>
-                        <form action="${contextPath}/rooms/allHotelRooms/${hotel.id}" method="post">
+                        <form action="${contextPath}/rooms/all/${hotel.id}" method="post">
                             <input type="submit" value="check a specific room" class="subm">
                         </form>
                     </td>
