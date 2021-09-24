@@ -105,7 +105,7 @@ public class HotelDaoImpl implements HotelDAO {
         Hotel hotel = session.get(Hotel.class, id);
         List<Room> rooms = hotel.getRooms();
         for (Room room: rooms) {
-            room.getBookings().clear();
+            room.setBookings(null);
         }
         log.info("Delete hotel by id" + hotel.getId());
         session.delete(hotel);

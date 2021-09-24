@@ -34,7 +34,7 @@ public class HibernateConfig {
         properties.put("hibernate.hbm2ddl.auto", environment.getRequiredProperty("hibernate.hbm2ddl.auto"));
         properties.put("hibernate.generate-ddl", environment.getRequiredProperty("hibernate.generate-ddl"));
         properties.put("hibernate.hbm2ddl.import_files", environment.getRequiredProperty("hibernate.hbm2ddl.import_files"));
-        properties.put("current_session_context_class", environment.getRequiredProperty("current_session_context_class"));
+       // properties.put("current_session_context_class", environment.getRequiredProperty("current_session_context_class"));
         return properties;
     }
 

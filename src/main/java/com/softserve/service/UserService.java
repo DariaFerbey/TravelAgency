@@ -3,10 +3,12 @@ package com.softserve.service;
 import com.softserve.dao.UserDAO;
 import com.softserve.model.User;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class UserService {
 
     private final UserDAO userDAO;

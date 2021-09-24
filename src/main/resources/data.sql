@@ -14,9 +14,9 @@ INSERT INTO users (id, fullName, role, password) VALUES (4, 'Mike', 'USER', '$2a
 INSERT INTO rooms (id, room_number, price, is_available, hotel_id) VALUES (1,123, 550, false, 1);
 INSERT INTO rooms (id, room_number, price, is_available, hotel_id) VALUES (2, 43, 100, false, 3);
 INSERT INTO rooms (id, room_number, price, is_available, hotel_id) VALUES (3, 234, 250, false, 1);
-INSERT INTO rooms (id, room_number, price, is_available, hotel_id) VALUES (4, 4, 150, true, null);
-INSERT INTO rooms (id, room_number, price, is_available, hotel_id) VALUES (5, 6456, 450, true, null);
-INSERT INTO rooms (id, room_number, price, is_available, hotel_id) VALUES (6, 1234, 510,true, null);
+INSERT INTO rooms (id, room_number, price, is_available, hotel_id) VALUES (4, 4, 150, true, 1);
+INSERT INTO rooms (id, room_number, price, is_available, hotel_id) VALUES (5, 6456, 450, true, 3);
+INSERT INTO rooms (id, room_number, price, is_available, hotel_id) VALUES (6, 1234, 510,true, 1);
 
 INSERT INTO bookings (id, check_in, check_out, room_id, user_id) VALUES (123, '2021-05-11', '2021-05-13', 1, 4);
 INSERT INTO bookings (id, check_in, check_out, room_id, user_id) VALUES (456, '2021-05-07', '2021-05-08', 2, 5);
