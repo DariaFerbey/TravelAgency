@@ -28,7 +28,7 @@ public class Booking {
     @ToString.Exclude
     @OnDelete(action = OnDeleteAction.CASCADE)
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "room_id")
+    @JoinColumn(name = "room_number")
     private Room room;
 
     @ToString.Exclude

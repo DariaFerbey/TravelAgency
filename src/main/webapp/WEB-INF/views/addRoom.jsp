@@ -20,8 +20,8 @@
 <div class="container">
     <div class="col-sm-4">
         <h2>Add room</h2>
-        <form:form action="/rooms/add" modelAttribute="room" method="post">
-            <input class="form-control" type="hidden" name="hotelId" value="${room.id}">
+        <form:form action="/rooms/add/" modelAttribute="room" method="post">
+            <input class="form-control" type="hidden" name="hotelId" value="${room.hotel.id}">
             <div class="form-group">
                 <label for="number">Number</label>
                 <form:input class="form-control" path="number" type="number" id="number" placeholder="Number"

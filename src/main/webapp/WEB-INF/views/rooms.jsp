@@ -24,7 +24,6 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>Room id</th>
                 <th>Room number</th>
                 <th>Room price</th>
             </tr>
@@ -32,7 +31,6 @@
             <tbody>
             <c:forEach var="room" items="${rooms}">
                 <tr>
-                    <td>${room.id}</td>
                     <td>${room.number}</td>
                     <td>${room.price}</td>
                 </tr>

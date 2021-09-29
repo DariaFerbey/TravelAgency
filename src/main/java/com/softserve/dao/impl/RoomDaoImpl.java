@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -27,15 +28,15 @@ public class RoomDaoImpl implements RoomDAO {
 
 
     @Override
-    public Room findById(Integer id) {
+    public Room findByNumber(Integer room_number) {
         Session session;
         try {
             session = sessionFactory.getCurrentSession();
         } catch (HibernateException e) {
             session = sessionFactory.openSession();
         }
-        Room room = session.get(Room.class,id);
-        log.info("Find room by id: "+ id);
+        Room room = session.get(Room.class,room_number);
+        log.info("Find room by id: "+ room_number);
         return room;
     }
 
@@ -80,14 +81,18 @@ public class RoomDaoImpl implements RoomDAO {
 
     @Override
     public void save(Room room) {
-        Session session;
-        try {
-            session = sessionFactory.getCurrentSession();
-        } catch (HibernateException e) {
-            session = sessionFactory.openSession();
-        }
+        Session session = sessionFactory.getCurrentSession();
         session.save(room);
-        log.info("Save room with id" + room.getId());
+        session.save(room);
+        log.info("Save room with number" + room.getNumber());
+
+//        Serializable serializable = sessionFactory.getCurrentSession().save(room);
+//        if (serializable == null) {
+//            log.info("Adding room with id {} is failed! ", room.getId());
+//            System.out.println("Adding room with id "+room.getId()+" is failed! ");
+//        }
+//        log.info("Room with id {} added successfully! ", room.getId());
+
     }
 
     @Override

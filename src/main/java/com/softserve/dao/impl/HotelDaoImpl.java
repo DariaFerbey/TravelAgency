@@ -72,12 +72,7 @@ public class HotelDaoImpl implements HotelDAO {
 
     @Override
     public void save(Hotel hotel) {
-        Session session;
-        try {
-            session = sessionFactory.getCurrentSession();
-        } catch (HibernateException e) {
-            session = sessionFactory.openSession();
-        }
+        Session session = sessionFactory.getCurrentSession();
         session.save(hotel);
         log.info("Save hotel: id=" + hotel.getId());
     }
