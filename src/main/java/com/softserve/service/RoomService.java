@@ -21,8 +21,8 @@ public class RoomService {
         this.roomDAO = roomDAO;
     }
 
-    public Room findById(Integer roomId) {
-        return roomDAO.findById(roomId);
+    public Room findByNumber(Integer roomNumber) {
+        return roomDAO.findByNumber(roomNumber);
     }
 
     public List<Room> getAllRooms(Integer id) {

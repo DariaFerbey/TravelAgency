@@ -6,7 +6,7 @@ import com.softserve.model.Room;
 import java.util.List;
 
 public interface RoomDAO {
-    Room findById(Integer id);
+    Room findByNumber(Integer room_number);
     List<Room> getAllRooms();
     List<Room> getAllHotelRooms(Integer hotelId);
     List<Booking> getOrderByRoom(Integer id);

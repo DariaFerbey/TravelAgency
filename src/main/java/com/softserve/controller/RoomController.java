@@ -8,10 +8,7 @@ import com.softserve.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,7 +34,7 @@ public class RoomController {
 
     @GetMapping("/deleteRoom/{id}")
     public String deleteRoom(Model model, @PathVariable("id") Integer id) {
-        Hotel hotel = roomService.findById(id).getHotel();
+        Hotel hotel = roomService.findByNumber(id).getHotel();
         List<Room> roomList = roomService.getAllHotelRooms(hotel.getId());
         roomService.delete(id);
         model.addAttribute("rooms", roomList);
@@ -54,11 +51,13 @@ public class RoomController {
     }
 
     @PostMapping("/add")
-    public String addRoomForm(Room room, Model model) {
+    public String addRoom(@ModelAttribute("hotelId") Integer id, Room room, Model model) {
+        Hotel hotel = hotelService.findById(id);
+        room.setHotel(hotel);
         roomService.save(room);
         List<Room> roomList = roomService.getAllHotelRooms(room.getHotel().getId());
         model.addAttribute("roomList", roomList);
-        return "redirect:/all/" + room.getHotel().getId();
+        return "redirect:/rooms/all/" + room.getHotel().getId();
     }
 
     @PostMapping("/all/{id}")

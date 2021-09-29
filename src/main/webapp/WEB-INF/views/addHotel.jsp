@@ -22,7 +22,7 @@
         <form:form action="${contextPath}/hotels/addHotel" modelAttribute="hotel" method="post">
             <div class="form-group">
                 <label for="hotelName">Hotel name</label>
-                <input path="hotelName" class="form-control" type="text" id="hotelName" placeholder="Hotel name"
+                <form:input path="hotelName" class="form-control" type="text" id="hotelName" placeholder="Hotel name"
                        required="true"/>
             </div>
             <div class="form-group">
