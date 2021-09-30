@@ -6,6 +6,7 @@ import com.softserve.model.Room;
 import com.softserve.service.CountryService;
 import com.softserve.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +26,7 @@ public class HotelController {
         this.countryService = countryService;
     }
 
+    @PreAuthorize("hasAuthority('all_permissions')")
     @GetMapping("/addHotel")
     public String addHotelPage(Model model) {
         model.addAttribute("hotel",new Hotel());
@@ -32,6 +34,7 @@ public class HotelController {
         return "addHotel";
     }
 
+    @PreAuthorize("hasAuthority('all_permissions')")
     @PostMapping("/addHotel")
     public String addHotelForm(Hotel hotel, @RequestParam("countryName") Integer countryId) {
         hotel.setCountry(countryService.findById(countryId));
@@ -39,12 +42,14 @@ public class HotelController {
         return "redirect:/hotels/hotelList";
     }
 
+    @PreAuthorize("hasAuthority('all_permissions')")
     @GetMapping("/deleteHotel/{id}")
     public String deleteHotel(@PathVariable("id") Integer id) {
         hotelService.delete(id);
         return "redirect:/hotels/hotelList";
     }
 
+    @PreAuthorize("hasAuthority('all_permissions')")
     @GetMapping("/hotelList")
     public String hotelListPage(Model model) {
         List<Hotel> hotelList = hotelService.getAllHotels();

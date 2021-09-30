@@ -6,6 +6,7 @@ import com.softserve.service.HotelService;
 import com.softserve.service.RoomService;
 import com.softserve.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +33,7 @@ public class RoomController {
         return "rooms";
     }
 
+    @PreAuthorize("hasAuthority('all_permissions')")
     @GetMapping("/deleteRoom/{id}")
     public String deleteRoom(Model model, @PathVariable("id") Integer id) {
         Hotel hotel = roomService.findByNumber(id).getHotel();
@@ -41,6 +43,7 @@ public class RoomController {
         return "rooms";
     }
 
+    @PreAuthorize("hasAuthority('all_permissions')")
     @GetMapping("/add/{id}")
     public String addRoom(@PathVariable("id") Integer id, Model model) {
         Hotel hotel = hotelService.findById(id);

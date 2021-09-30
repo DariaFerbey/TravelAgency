@@ -7,9 +7,10 @@ INSERT INTO hotels (hotel_name, country_id) VALUES ('Grand Hotel Tremezzo', 1);
 INSERT INTO hotels (hotel_name, country_id) VALUES ('Mandarin Oriental', 2);
 INSERT INTO hotels (hotel_name, country_id) VALUES ('InterContinental', 3);
 
-INSERT INTO users (user_id, fullName, role, password) VALUES (5, 'Nick', 'USER', '$2a$10$CJgEoobU2gm0euD4ygru4ukBf9g8fYnPrMvYk.q0GMfOcIDtUhEwC');
-INSERT INTO users (user_id, fullName, role, password) VALUES (6, 'Nora', 'MANAGER', '$2a$10$yYQaJrHzjOgD5wWCyelp0e1Yv1KEKeqUlYfLZQ1OQvyUrnEcX/rOy');
-INSERT INTO users (user_id, fullName, role, password) VALUES (4, 'Mike', 'USER', '$2a$10$CdEJ2PKXgUCIwU4pDQWICuiPjxb1lysoX7jrN.Y4MTMoY9pjfPALO');
+insert into users (user_id, fullName, role, status, password) values (7, 'admin','MANAGER','ACTIVE',  '$2y$12$6wWu.bjCJegev7tg3l0R9.ZUxKbMyIA2HsMkOwmrT4CnQ75ldJhN6');
+INSERT INTO users (user_id, fullName, role, status, password) VALUES (5, 'Nick', 'USER', 'ACTIVE', '$2y$12$6wWu.bjCJegev7tg3l0R9.ZUxKbMyIA2HsMkOwmrT4CnQ75ldJhN6');
+INSERT INTO users (user_id, fullName, role, status, password) VALUES (6, 'Nora', 'MANAGER', 'ACTIVE', '$2a$10$yYQaJrHzjOgD5wWCyelp0e1Yv1KEKeqUlYfLZQ1OQvyUrnEcX/rOy');
+INSERT INTO users (user_id, fullName, role, status, password) VALUES (4, 'Mike', 'USER', 'ACTIVE', '$2a$10$CdEJ2PKXgUCIwU4pDQWICuiPjxb1lysoX7jrN.Y4MTMoY9pjfPALO');
 
 INSERT INTO rooms (room_number, price, is_available, hotel_id) VALUES (123, 550, false, 1);
 INSERT INTO rooms (room_number, price, is_available, hotel_id) VALUES (43, 100, false, 3);

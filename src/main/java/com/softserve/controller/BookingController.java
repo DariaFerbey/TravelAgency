@@ -3,6 +3,7 @@ package com.softserve.controller;
 import com.softserve.service.BookingService;
 import com.softserve.service.RoomService;
 import com.softserve.service.UserService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +31,7 @@ public class BookingController {
         return "redirect:/booking/all/" + userId;
     }
 
+    @PreAuthorize("hasAuthority('all_permissions')")
     @GetMapping("/all/{id}")
     public String getAllBookingsByUserId(@PathVariable("id") Integer userId, Model model) {
         model.addAttribute("all", bookingService.getBookingsByUserId(userId));
