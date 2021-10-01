@@ -55,12 +55,18 @@ public class BookingDaoImpl implements BookingDAO {
             session = sessionFactory.openSession();
         }
         Booking booking = session.get(Booking.class, id);
-
-        List<Booking> bookings = session.createQuery("from Booking  b where user.id=:id",Booking.class)
-                        .setParameter("id",id)
-                        .getResultList();
         log.info("Get list of all bookings by user id (user_id: "+ id+"): ");
-        return null;
+        return booking;
+    }
+
+    @Override
+    public Booking getByRoomNumber(Integer roomNumber) {
+        Session session = sessionFactory.getCurrentSession();
+        Booking booking = session.createQuery("from Booking  b where b.room.number=:roomNumber", Booking.class)
+                .setParameter("roomNumber",roomNumber)
+                .getResultList()
+                .stream().findFirst().orElse(null);
+        return booking;
     }
 
     @Override

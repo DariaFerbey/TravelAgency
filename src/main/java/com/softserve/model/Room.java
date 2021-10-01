@@ -21,9 +21,6 @@ public class Room {
     @Column(name = "price", unique = true)
     private Integer price;
 
-    @Column(name = "is_available")
-    private boolean isAvailable;
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "hotel_id")
     private Hotel hotel;

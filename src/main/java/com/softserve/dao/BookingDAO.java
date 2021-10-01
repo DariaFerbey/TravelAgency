@@ -8,6 +8,7 @@ public interface BookingDAO {
     void save(Booking booking);
     void delete(Integer id);
     Booking getByUserId(Integer id);
+    Booking getByRoomNumber(Integer roomNumber);
     List<Booking> getAllBookings();
 }
 
