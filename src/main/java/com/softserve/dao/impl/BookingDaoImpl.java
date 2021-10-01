@@ -35,12 +35,7 @@ public class BookingDaoImpl implements BookingDAO {
 
     @Override
     public void delete(Integer id) {
-        Session session;
-        try {
-            session = sessionFactory.getCurrentSession();
-        } catch (HibernateException e) {
-            session = sessionFactory.openSession();
-        }
+        Session session = sessionFactory.getCurrentSession();
         Booking booking = session.get(Booking.class, id);
         log.info("Delete booking by id: " + id);
         session.delete(booking);

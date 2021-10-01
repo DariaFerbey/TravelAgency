@@ -26,8 +26,8 @@ public class BookingController {
 
     @GetMapping("/delete/{id}")
     public String cancelBooking(@PathVariable("id") Integer bookingId) {
-        bookingService.cancel(bookingId);
         Integer userId = bookingService.getBookingById(bookingId).getUser().getId();
+        bookingService.cancel(bookingId);
         return "redirect:/booking/all/" + userId;
     }
 
