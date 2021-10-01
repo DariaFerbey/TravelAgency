@@ -43,4 +43,6 @@ public class BookingService {
     public List<Booking> getAllBookings(){
         return bookingDao.getAllBookings();
     }
+
+    public Booking getBookingByRoomNumber(Integer roomNumber){ return  bookingDao.getByRoomNumber(roomNumber);}
 }

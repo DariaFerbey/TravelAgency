@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -33,10 +34,6 @@ public class RoomService {
         return roomDAO.getAllHotelRooms(hotelId);
     }
 
-    public List<Booking> getOrderByRoom (Integer roomId) {
-        return roomDAO.getOrderByRoom(roomId);
-    }
-
     public void save(Room room) {
         roomDAO.save(room);
     }
@@ -49,8 +46,15 @@ public class RoomService {
         roomDAO.saveRoomBooking(booking);
     }
 
-    public boolean availableRoomsInHotel(){
-        return false;
+    public boolean availableRoomsInHotel(Booking booking){
+        if(booking.getCheckIn().isEqual(booking.getCheckOut()) ||
+        booking.getCheckIn().isAfter(booking.getCheckOut()) ||
+        booking.getCheckIn().isBefore(LocalDate.now())) {
+            throw new IllegalArgumentException("Your time borders is not correct.");
+        }
+
+        List<Room> booked = roomDAO.getRoomsBookedInHotelOnDate(booking.getRoom().getHotel().getId(), booking.getCheckIn(), booking.getCheckOut());
+        return  !booked.contains(roomDAO.findByNumber(booking.getRoom().getNumber()));
     }
 
 }

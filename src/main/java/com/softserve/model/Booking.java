@@ -35,4 +35,11 @@ public class Booking {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
+
+    public Booking(LocalDate checkIn, LocalDate checkOut, Room room, User user) {
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
+        this.room = room;
+        this.user = user;
+    }
 }

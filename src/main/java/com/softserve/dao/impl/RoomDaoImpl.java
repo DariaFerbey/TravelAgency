@@ -35,8 +35,8 @@ public class RoomDaoImpl implements RoomDAO {
         } catch (HibernateException e) {
             session = sessionFactory.openSession();
         }
-        Room room = session.get(Room.class,room_number);
-        log.info("Find room by id: "+ room_number);
+        Room room = session.get(Room.class, room_number);
+        log.info("Find room by id: " + room_number);
         return room;
     }
 
@@ -48,7 +48,7 @@ public class RoomDaoImpl implements RoomDAO {
         } catch (HibernateException e) {
             session = sessionFactory.openSession();
         }
-        List<Room> rooms = session.createQuery("select room from Room room",Room.class)
+        List<Room> rooms = session.createQuery("select room from Room room", Room.class)
                 .getResultList();
         log.info("Get list of rooms");
         return rooms;
@@ -58,25 +58,10 @@ public class RoomDaoImpl implements RoomDAO {
     public List<Room> getAllHotelRooms(Integer hotelId) {
         Session session = sessionFactory.getCurrentSession();
         List<Room> rooms = session.createQuery("from Room r where hotel.id=:id", Room.class)
-                .setParameter("id",hotelId)
+                .setParameter("id", hotelId)
                 .getResultList();
-        log.info("Get list of all rooms in hotel (hotel_id: "+ hotelId+"): ");
+        log.info("Get list of all rooms in hotel (hotel_id: " + hotelId + "): ");
         return rooms;
-    }
-
-    @Override
-    public List<Booking> getOrderByRoom(Integer id) {
-        Session session;
-        try {
-            session = sessionFactory.getCurrentSession();
-        } catch (HibernateException e) {
-            session = sessionFactory.openSession();
-        }
-        List<Booking> list = session.createQuery("from Booking b where b.room.id=:id", Booking.class)
-                .setParameter("id", id)
-                .getResultList();
-        log.info("Get orders for room by id: " + id);
-        return list;
     }
 
     @Override
@@ -85,13 +70,6 @@ public class RoomDaoImpl implements RoomDAO {
         session.save(room);
         session.save(room);
         log.info("Save room with number" + room.getNumber());
-
-//        Serializable serializable = sessionFactory.getCurrentSession().save(room);
-//        if (serializable == null) {
-//            log.info("Adding room with id {} is failed! ", room.getId());
-//            System.out.println("Adding room with id "+room.getId()+" is failed! ");
-//        }
-//        log.info("Room with id {} added successfully! ", room.getId());
 
     }
 
@@ -118,6 +96,18 @@ public class RoomDaoImpl implements RoomDAO {
         }
         session.save(booking);
         log.info("Save room booking");
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Room> getRoomsBookedInHotelOnDate(Integer hotelId, LocalDate checkIn, LocalDate checkOut) {
+        Session session = sessionFactory.getCurrentSession();
+        List<Room> roomsOnDate = session.createQuery("select b.room from Booking b where (b.checkIn <= :checkIn and  b.checkOut >= :checkOut) and b.room.hotel.id = :hotelId")
+                .setParameter("checkIn", checkIn)
+                .setParameter("checkOut", checkOut)
+                .setParameter("hotelId", hotelId)
+                .getResultList();
+        return roomsOnDate;
     }
 
 }

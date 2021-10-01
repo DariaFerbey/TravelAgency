@@ -12,12 +12,12 @@ INSERT INTO users (user_id, fullName, role, status, password) VALUES (5, 'Nick',
 INSERT INTO users (user_id, fullName, role, status, password) VALUES (6, 'Nora', 'MANAGER', 'ACTIVE', '$2a$10$yYQaJrHzjOgD5wWCyelp0e1Yv1KEKeqUlYfLZQ1OQvyUrnEcX/rOy');
 INSERT INTO users (user_id, fullName, role, status, password) VALUES (4, 'Mike', 'USER', 'ACTIVE', '$2a$10$CdEJ2PKXgUCIwU4pDQWICuiPjxb1lysoX7jrN.Y4MTMoY9pjfPALO');
 
-INSERT INTO rooms (room_number, price, is_available, hotel_id) VALUES (123, 550, false, 1);
-INSERT INTO rooms (room_number, price, is_available, hotel_id) VALUES (43, 100, false, 3);
-INSERT INTO rooms (room_number, price, is_available, hotel_id) VALUES (234, 250, false, 1);
-INSERT INTO rooms (room_number, price, is_available, hotel_id) VALUES (4, 150, true, 1);
-INSERT INTO rooms (room_number, price, is_available, hotel_id) VALUES (6456, 450, true, 3);
-INSERT INTO rooms (room_number, price, is_available, hotel_id) VALUES (1234, 510,true, 1);
+INSERT INTO rooms (room_number, price, hotel_id) VALUES (123, 550, 1);
+INSERT INTO rooms (room_number, price, hotel_id) VALUES (43, 100,  3);
+INSERT INTO rooms (room_number, price, hotel_id) VALUES (234, 250, 1);
+INSERT INTO rooms (room_number, price, hotel_id) VALUES (4, 150, 1);
+INSERT INTO rooms (room_number, price, hotel_id) VALUES (6456, 450, 3);
+INSERT INTO rooms (room_number, price, hotel_id) VALUES (1234, 510, 1);
 
 INSERT INTO bookings (id, check_in, check_out, room_number, user_id) VALUES (123, '2021-05-11', '2021-05-13', 123, 4);
 INSERT INTO bookings (id, check_in, check_out, room_number, user_id) VALUES (456, '2021-05-07', '2021-05-08', 43, 5);
